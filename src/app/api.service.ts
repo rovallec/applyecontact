@@ -13,11 +13,11 @@ export class ApiService {
   php_api_server = "http://168.194.75.13";
 
   createProfile(profile:profiles){
-    return this.httpClient.post<number>(`${this.php_api_server}/minearsol/create_application.php`, profile);
+    return this.httpClient.post<number>(`${this.php_api_server}/phpscripts/create_application.php`, profile);
   };
 
   create_job_history(profile:job_histories[]){
-    return this.httpClient.post<number>(`${this.php_api_server}/minearsol/create_job_history.php`, profile);
+    return this.httpClient.post<number>(`${this.php_api_server}/phpscripts/create_job_history.php`, profile);
   }
 
   constructor(private httpClient: HttpClient) {
