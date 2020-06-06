@@ -1,0 +1,10 @@
+input {
+    border-radius: 1rem;
+    border-color: #ff4455;
+}
+select {
+    appearance: none;
+    background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right white;
+    border-radius: 1rem;
+    border-color: #ff4455;
+}

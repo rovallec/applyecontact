@@ -1,0 +1,688 @@
+<div>
+  <form style="margin-left:10%; margin-right:10%; margin-top:25px" #f="ngForm">
+    <div class="form-row" style="border-bottom: 4px solid #e3f2fd">
+      <label for="gpr_personal"><b>Personal Information:</b></label>
+      <div class="form-group col-md-12" id="gpr_personal">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="input_firstname">First Name:</label>
+            <input type="text" class="form-control" id="input_firstname" [ngModelOptions]="{standalone:true}"
+              placeholder="First Name" [(ngModel)]="profile_to_create.first_name" (focus)="onFocusIt($event)">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="input_secondname">Second Name:</label>
+            <input type="text" class="form-control" id="input_secondname" [ngModelOptions]="{standalone:true}"
+              placeholder="Second Name" [(ngModel)]="profile_to_create.second_name">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="input_firstlastname">Fist Last Name:</label>
+            <input type="text" class="form-control" id="input_firstlastname" [ngModelOptions]="{standalone:true}"
+              placeholder="First Last Name" [(ngModel)]="profile_to_create.first_lastname">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="input_secondlastname">Second Last Name:</label>
+            <input type="text" class="form-control" id="input_firstlastname" [ngModelOptions]="{standalone:true}"
+              [(ngModel)]="profile_to_create.second_lastname" placeholder="Secod Lastname">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="date_pick">Date of Birth:</label>
+            <div class="form-row" id="date_pick">
+              <div class="form-group col-md-3">
+                <label for="date_day">Day:</label>
+                <select class="form-control" id="date_day" [ngModelOptions]="{standalone:true}" [(ngModel)]="birth_day">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
+                  <option>13</option>
+                  <option>14</option>
+                  <option>15</option>
+                  <option>16</option>
+                  <option>17</option>
+                  <option>18</option>
+                  <option>19</option>
+                  <option>20</option>
+                  <option>21</option>
+                  <option>22</option>
+                  <option>23</option>
+                  <option>24</option>
+                  <option>25</option>
+                  <option>26</option>
+                  <option>27</option>
+                  <option>28</option>
+                  <option>29</option>
+                  <option>30</option>
+                  <option>31</option>
+                </select>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="date_month">Month:</label>
+                <select id="date_month" class="form-control" [ngModelOptions]="{standalone:true}"
+                  [(ngModel)]="birth_month">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
+                </select>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="date_month">Year:</label>
+                <select id="date_month" class="form-control" [ngModelOptions]="{standalone:true}"
+                  [(ngModel)]="birth_year">
+                  <option *ngFor="let yr of yrs">{{yr}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-8">
+            <label for="status_info">Basic Information:</label>
+            <div class="form-row" id="status_information">
+              <div class="form-group col-md-2">
+                <label for="cmb_tittle">Tittle:</label>
+                <select id="cmb_tittle" class="form-control" [ngModelOptions]="{standalone:true}"
+                  [(ngModel)]="profile_to_create.tittle">
+                  <option>MR</option>
+                  <option>MS</option>
+                  <option>MRS</option>
+                  <option>MISS</option>
+                </select>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="cmb_maritalstatus">Marital Status:</label>
+                <select id="cmb_maritalstatus" class="form-control" [ngModelOptions]="{standalone:true}"
+                  [(ngModel)]="profile_to_create.marital_status">
+                  <option>Single</option>
+                  <option>Married</option>
+                </select>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="cmb_nationality">Nationality:</label>
+                <select id="cmb_nationality" class="form-control" [ngModelOptions]="{standalone:true}"
+                  [(ngModel)]="profile_to_create.nationality">
+                  <option>Afghan</option>
+                  <option>Albanian</option>
+                  <option>Algerian</option>
+                  <option>Argentine</option>
+                  <option>Argentinian</option>
+                  <option>Australian</option>
+                  <option>Austrian</option>
+                  <option>Bangladeshi</option>
+                  <option>Belgian</option>
+                  <option>Bolivian</option>
+                  <option>Batswana</option>
+                  <option>Brazilian</option>
+                  <option>Bulgarian</option>
+                  <option>Cambodian</option>
+                  <option>Cameroonian</option>
+                  <option>Canadian</option>
+                  <option>Chilean</option>
+                  <option>Chinese</option>
+                  <option>Colombian</option>
+                  <option>Costa Rican</option>
+                  <option>Croatian</option>
+                  <option>Cuban</option>
+                  <option>Czech</option>
+                  <option>Danish</option>
+                  <option>Dominican</option>
+                  <option>Ecuadorian</option>
+                  <option>Egyptian</option>
+                  <option>Salvadorian</option>
+                  <option>English</option>
+                  <option>Estonian</option>
+                  <option>Ethiopian</option>
+                  <option>Fijian</option>
+                  <option>Finnish</option>
+                  <option>French</option>
+                  <option>German</option>
+                  <option>Ghanaian</option>
+                  <option>Greek</option>
+                  <option>Guatemalan</option>
+                  <option>Haitian</option>
+                  <option>Honduran</option>
+                  <option>Hungarian</option>
+                  <option>Icelandic</option>
+                  <option>Indian</option>
+                  <option>Indonesian</option>
+                  <option>Iranian</option>
+                  <option>Iraqi</option>
+                  <option>Irish</option>
+                  <option>Israeli</option>
+                  <option>Italian</option>
+                  <option>Jamaican</option>
+                  <option>Japanese</option>
+                  <option>Jordanian</option>
+                  <option>Kenyan</option>
+                  <option>Kuwaiti</option>
+                  <option>Lao</option>
+                  <option>Latvian</option>
+                  <option>Lebanese</option>
+                  <option>Libyan</option>
+                  <option>Lithuanian</option>
+                  <option>Malaysian</option>
+                  <option>Malian</option>
+                  <option>Maltese</option>
+                  <option>Mexican</option>
+                  <option>Mongolian</option>
+                  <option>Moroccan</option>
+                  <option>Mozambican</option>
+                  <option>Namibian</option>
+                  <option>Nepalese</option>
+                  <option>Dutch</option>
+                  <option>New Zealand</option>
+                  <option>Nicaraguan</option>
+                  <option>Nigerian</option>
+                  <option>Norwegian</option>
+                  <option>Pakistani</option>
+                  <option>Panamanian</option>
+                  <option>Paraguayan</option>
+                  <option>Peruvian</option>
+                  <option>Philippine</option>
+                  <option>Polish</option>
+                  <option>Portuguese</option>
+                  <option>Romanian</option>
+                  <option>Russian</option>
+                  <option>Saudi</option>
+                  <option>Scottish</option>
+                  <option>Senegalese</option>
+                  <option>Serbian</option>
+                  <option>Singaporean</option>
+                  <option>Slovak</option>
+                  <option>South African</option>
+                  <option>Korean</option>
+                  <option>Spanish</option>
+                  <option>Sri Lankan</option>
+                  <option>Sudanese</option>
+                  <option>Swedish</option>
+                  <option>Swiss</option>
+                  <option>Syrian</option>
+                  <option>Taiwanese</option>
+                  <option>Tajikistani</option>
+                  <option>Thai</option>
+                  <option>Tongan</option>
+                  <option>Tunisian</option>
+                  <option>Turkish</option>
+                  <option>Ukrainian</option>
+                  <option>Emirati</option>
+                  <option>British</option>
+                  <option>American **</option>
+                  <option>Uruguayan</option>
+                  <option>Venezuelan</option>
+                  <option>Vietnamese</option>
+                  <option>Welsh</option>
+                  <option></option>
+                  <option>Zambian</option>
+                  <option>Zimbabwean</option>
+                </select>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="cmb_gender">Gender:</label>
+                <select id="cmb_gender" class="form-control">
+                  <option>Male</option>
+                  <option>Female</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-row" style="border-bottom: 4px solid #e3f2fd">
+      <label for="gpr_statal"><b>Statal Information:</b></label>
+      <div class="form-group col-md-12">
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <label for="input_nit">NIT:</label>
+            <input type="text" class="form-control" placeholder="NIT input" [ngModelOptions]="{standalone:true}"
+              [(ngModel)]="profile_to_create.nit">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="input_igss">IGSS:</label>
+            <input type="text" class="form-control" placeholder="IGSS input" [ngModelOptions]="{standalone:true}"
+              [(ngModel)]="profile_to_create.igss">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="input_itra">IRTRA:</label>
+            <input type="text" class="form-control" placeholder="IRTRA input" [ngModelOptions]="{standalone:true}"
+              [(ngModel)]="profile_to_create.irtra">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="input_itra">DPI:</label>
+            <input type="text" class="form-control" placeholder="DPI input" [ngModelOptions]="{standalone:true}"
+              [(ngModel)]="profile_to_create.dpi">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-row" style="border-bottom: 4px solid #e3f2fd">
+      <label for="gpr_statal"><b>Contact Information:</b></label>
+      <div class="form-group col-md-12">
+        <div class="form-row">
+          <div class="form-group col-md-2">
+            <label for="input_nit">Primary Phone Number:</label>
+            <input type="text" class="form-control" placeholder="Phone number" [ngModelOptions]="{standalone:true}"
+              [(ngModel)]="profile_to_create.primary_phone">
+          </div>
+          <div class="form-group col-md-2">
+            <label for="input_igss">Altern Phone Number:</label>
+            <input type="text" class="form-control" placeholder="Altern Phone" [ngModelOptions]="{standalone:true}"
+              [(ngModel)]="profile_to_create.secondary_phone">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="input_itra">Address:</label>
+            <input type="text" class="form-control" placeholder="Adress" [ngModelOptions]="{standalone:true}"
+              [(ngModel)]="profile_to_create.address">
+          </div>
+          <div class="form-group col-md-2">
+            <label for="input_itra">City:</label>
+            <input type="text" class="form-control" placeholder="City" [ngModelOptions]="{standalone:true}"
+              [(ngModel)]="profile_to_create.city">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="input_itra">Email:</label>
+            <input type="text" class="form-control" placeholder="Email Address" [ngModelOptions]="{standalone:true}"
+              [(ngModel)]="profile_to_create.email">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <label for="gpr_add"><b>Additional Information:</b></label>
+        <div class="form-group col-md-12" id="gpr_add">
+            <div class="form-row">
+          <div class="form-group col-md-6" id="gpr_test">
+            <label for="gpr_test">Let us know:</label>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="input_english">English Level:</label>
+                <input type="text" class="form-control" placeholder="English Level" [ngModelOptions]="{standalone:true}"
+                  [(ngModel)]="profile_to_create.english_level">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="input_nit">Arrival Method:</label>
+                <Select type="text" class="form-control" [ngModelOptions]="{standalone:true}"
+                  [(ngModel)]="profile_to_create.transport" ngDefaultControl>
+                  <option>Car</option>
+                  <option>Bus</option>
+                  <option>Walk</option>
+                  </Select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="date_pick">Start Date:</label>
+            <div class="form-row" id="date_pick">
+              <div class="form-group col-md-2">
+                <label for="date_day">Day:</label>
+                <select class="form-control" id="date_day" [ngModelOptions]="{standalone:true}" [(ngModel)]="start_day">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
+                  <option>13</option>
+                  <option>14</option>
+                  <option>15</option>
+                  <option>16</option>
+                  <option>17</option>
+                  <option>18</option>
+                  <option>19</option>
+                  <option>20</option>
+                  <option>21</option>
+                  <option>22</option>
+                  <option>23</option>
+                  <option>24</option>
+                  <option>25</option>
+                  <option>26</option>
+                  <option>27</option>
+                  <option>28</option>
+                  <option>29</option>
+                  <option>30</option>
+                  <option>31</option>
+                </select>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="date_month">Month:</label>
+                <select id="date_month" class="form-control" [ngModelOptions]="{standalone:true}"
+                  [(ngModel)]="start_month">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
+                </select>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="date_month">Year:</label>
+                <select id="date_month" class="form-control" [ngModelOptions]="{standalone:true}"
+                  [(ngModel)]="start_year">
+                  <option>2020</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row" style="border-top: 4px solid #e3f2fd">
+      <div class="form-group col-md-6">
+        <label for="input_itra">Unavailable days during week:</label>
+        <input type="text" class="form-control" placeholder="Unavailable days" [ngModelOptions]="{standalone:true}"
+          [(ngModel)]="profile_to_create.unavailable_days">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="input_itra">Where do you hear about us:</label>
+        <input type="text" class="form-control" placeholder="About Us" [ngModelOptions]="{standalone:true}"
+          [(ngModel)]="profile_to_create.marketing_campaing">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="input_itra">First Lenguage:</label>
+        <input type="text" class="form-control" placeholder="First Lenguage" [ngModelOptions]="{standalone:true}"
+          [(ngModel)]="profile_to_create.first_lenguage">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="input_itra">Second Lenguage:</label>
+        <input type="text" class="form-control" placeholder="Second Lenguage" [ngModelOptions]="{standalone:true}"
+          [(ngModel)]="profile_to_create.second_lenguage">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="input_itra">Third Lenguage:</label>
+        <input type="text" class="form-control" placeholder="Third Lenguage" [ngModelOptions]="{standalone:true}"
+          [(ngModel)]="profile_to_create.third_lenguage">
+      </div>
+    </div>
+
+    <div class="form-row" style="border-bottom: 4px solid #e3f2fd">
+      <label for="gpr_statal"><b>Emergency Contact:</b></label>
+      <div class="form-group col-md-12">
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="emergency_name1">First Name:</label>
+            <input type="text" class="form-control" placeholder="First Name" id="emergency_name1"
+              [ngModelOptions]="{standalone:true}" [(ngModel)]="profile_to_create.emergency_first_name">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="emergency_name1">Second Name:</label>
+            <input type="text" class="form-control" placeholder="Secons Name" id="emergency_name2"
+              [ngModelOptions]="{standalone:true}" [(ngModel)]="profile_to_create.emergency_second_name">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="emergency_name1">Phone Number:</label>
+            <input type="text" class="form-control" placeholder="Phone Number" id="phone_number"
+              [ngModelOptions]="{standalone:true}" [(ngModel)]="profile_to_create.emergency_phone">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="emergency_name1">First Last Name:</label>
+            <input type="text" class="form-control" placeholder="First Name" id="emergency_name1"
+              [ngModelOptions]="{standalone:true}" [(ngModel)]="profile_to_create.emergency_first_lastname">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="emergency_name1">Second Last Name:</label>
+            <input type="text" class="form-control" placeholder="Secons Name" id="emergency_name2"
+              [ngModelOptions]="{standalone:true}" [(ngModel)]="profile_to_create.emergency_second_lastname">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="emergency_name1">Relationship:</label>
+            <input type="text" class="form-control" placeholder="Phone Number" id="phone_number"
+              [ngModelOptions]="{standalone:true}" [(ngModel)]="profile_to_create.relationship">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <label for="job_history"><b>Job History:</b></label>
+      <div class="form-group col-md-12">
+        <div class="form-row" id="job_history">
+          <div class="form-group col-md-12">
+            <label for="input_first_job">Is this your first job?</label>
+            <select id="input_first_job" class="form-control" [ngModelOptions]="{standalone:true}"
+              [(ngModel)]="first_job">
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row" *ngIf="first_job=='No'">
+      <div class="form-group col-md-12">
+        <div class="form-row" *ngFor="let job of jobs_histories; index as i">
+          <div class="form-group col-md-12">
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <label for="input_company">Company Name:</label>
+                <input type="text" class="form-control" id="input_company" [ngModelOptions]="{standalone:true}"
+                  [(ngModel)]="job.company" placeholder="Company's Name">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="input_company">Joning Date:</label>
+                <input type="text" class="form-control" id="input_company" [ngModelOptions]="{standalone:true}"
+                  [(ngModel)]="job.date_joining" placeholder="Joining Date">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="input_company">Position:</label>
+                <input type="text" class="form-control" id="input_company" [ngModelOptions]="{standalone:true}"
+                  [(ngModel)]="job.position" placeholder="Position">
+              </div>
+              <div class="form-group col-md-2">
+                <label for="input_company">Working here:</label>
+                <select class="form-control" [ngModelOptions]="{standalone:true}" [(ngModel)]="job.working">
+                  <option>Yes</option>
+                  <option>No</option>
+                </select>
+              </div>
+              <div class="form-group col-md-1" style="text-align: center">
+                <i class="far fa-trash-alt" style="margin-top:50%" (click)="remove_it(i)"></i>
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-12">
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <label for="input_name">Reference Name:</label>
+                <input type="text" id="input_name" class="form-control" [ngModelOptions]="{standalone:true}"
+                  [(ngModel)]="job.reference_name" placeholder="Reference's Name">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="input_lastname">Reference Last Name:</label>
+                <input id="input_lastname" class="form-control" [ngModelOptions]="{standalone:true}"
+                  [(ngModel)]="job.reference_lastname" placeholder="Reference's Last Name">
+              </div>
+              <div class="form-group col-md-2">
+                <label for="input_position">Reference Position:</label>
+                <input type="text" id="input_position" class="form-control" [ngModelOptions]="{standalone:true}"
+                  [(ngModel)]="job.reference_position" placeholder="Reference's Position">
+              </div>
+              <div class="form-group col-md-2">
+                <label for="input_position">Reference Mail:</label>
+                <input id="input_position" type="text" class="form-control" [ngModelOptions]="{standalone:true}"
+                  [(ngModel)]="job.reference_mail" placeholder="Reference's Mail">
+              </div>
+              <div class="form-group col-md-2">
+                <label for="input_phone">Phone Number</label>
+                <input id="input_reference_phone" type="text" class="form-control" [ngModelOptions]="{standalone:true}"
+                  [(ngModel)]="job.reference_phone" placeholder="Reference's Phone Number">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <label for="input_company">Company Name:</label>
+            <input type="text" class="form-control" id="input_company" [ngModelOptions]="{standalone:true}"
+              [(ngModel)]="actual_job.company" placeholder="Company's Name">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="input_company">Joning Date:</label>
+            <input type="date" class="form-control" id="input_company" [ngModelOptions]="{standalone:true}"
+              [(ngModel)]="actual_job.date_joining" (input)="setselecteddate($event.target.value)">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="input_company">Position:</label>
+            <input type="text" class="form-control" id="input_company" [ngModelOptions]="{standalone:true}"
+              [(ngModel)]="actual_job.position" placeholder="Position">
+          </div>
+          <div class="form-group col-md-2">
+            <label for="input_company">Working here:</label>
+            <select class="form-control" [ngModelOptions]="{standalone:true}" [(ngModel)]="actual_job.working">
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="form-group col-md-12">
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <label for="input_name">Reference Name:</label>
+            <input type="text" id="input_name" class="form-control" [ngModelOptions]="{standalone:true}"
+              [(ngModel)]="actual_job.reference_name" placeholder="Reference's Name">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="input_lastname">Reference Last Name:</label>
+            <input id="input_lastname" class="form-control" [ngModelOptions]="{standalone:true}"
+              [(ngModel)]="actual_job.reference_lastname" placeholder="Reference's Last Name">
+          </div>
+          <div class="form-group col-md-2">
+            <label for="input_position">Reference Position:</label>
+            <input type="text" id="input_position" class="form-control" [ngModelOptions]="{standalone:true}"
+              [(ngModel)]="actual_job.reference_position" placeholder="Reference's Position">
+          </div>
+          <div class="form-group col-md-2">
+            <label for="input_position">Reference Mail:</label>
+            <input id="input_position" type="text" class="form-control" [ngModelOptions]="{standalone:true}"
+              [(ngModel)]="actual_job.reference_mail" placeholder="Reference's Mail">
+          </div>
+          <div class="form-group col-md-2">
+            <label for="input_phone">Phone Number</label>
+            <input id="input_reference_phone" type="text" class="form-control" [ngModelOptions]="{standalone:true}"
+              [(ngModel)]="actual_job.reference_phone" placeholder="Reference's Phone Number">
+          </div>
+        </div>
+      </div>
+      <div class="form-row" style="margin-left:95%">
+        <div class="form-group col-md-12">
+          <i class="fas fa-plus-circle" (click)="add_historie()"></i>
+        </div>
+      </div>
+    </div>
+    <div class="form-row" style="border-top: 4px solid #e3f2fd">
+      <label for="grp_medical"><b>Medical Information:</b></label>
+      <div class="form-group col-md-12" id="grp_medical">
+        <label for="sel_medical">Do you have a Medical Condition?</label>
+        <select class="form-control" [ngModelOptions]="{standalone:true}" [(ngModel)]="medical_condition">
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="form-group col-md-12">
+        <div class="form-row" *ngIf="medical_condition=='Yes'">
+          <div class="form-group col-md-6">
+            <label for="input_treatment">Medical Treatment:</label>
+            <input type="text" id="input_treatment" class="form-control" [ngModelOptions]="{standalone:true}"
+              [(ngModel)]="profile_to_create.medical_treatment" placeholder="Medical Treatment">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="input_prescription">Medical Prescription:</label>
+            <input type="text" id="input_prescription" class="form-control" [ngModelOptions]="{standalone:true}"
+              [(ngModel)]="profile_to_create.medical_prescription" placeholder="Medical Prescription">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row" style="border-top: 4px solid #e3f2fd">
+      <label for="gpr_medical"><b>EducaEducation:</b></label>
+      <div class="form-group col-md-12" id="gpr_medical">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="input_current">Current Level:</label>
+            <input type="text" class="form-control" [ngModelOptions]="{standalone:true}"
+              [(ngModel)]="profile_to_create.current_level" placeholder="Current Level">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="input_current">Further Education:</label>
+            <input type="text" class="form-control" [ngModelOptions]="{standalone:true}"
+              [(ngModel)]="profile_to_create.futher_education" placeholder="Further Education">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="studing">Currently Studing?</label>
+            <select id="studing" class="form-control" [ngModelOptions]="{standalone:true}"
+              [(ngModel)]="currently_studing">
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+          <div class="form-group col-md-12">
+            <div class="form-row" *ngIf="currently_studing=='Yes'">
+              <div class="form-group col-md-12">
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="input_current">Current Carrer:</label>
+                    <input type="text" id="input_current" class="form-control" [ngModelOptions]="{standalone:true}"
+                    [(ngModel)]="profile_to_create.currently_studing" placeholder="Current Carrer">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="input_institution">Institution Name:</label>
+                    <input type="text" id="input_institution" class="form-control" [ngModelOptions]="{standalone:true}"
+                    [(ngModel)]="profile_to_create.institution_name" placeholder="Institution Name">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="input_degree">Degree:</label> 
+                    <input type="text" id="input_degree" class="form-control" [ngModelOptions]="{standalone:true}"
+                    [(ngModel)]="profile_to_create.degree" placeholder="Degree">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button (click)="create(profile_to_create)" height="20px" style="width:80px;margin-left: 45%" class="form-control" *ngIf="!finishedForm">Finish</button>
+    <label style="margin-left: 40%; color:#ff4455;" *ngIf="finishedForm">Welcome To Nearsol Family</label>
+  </form>
+</div>
