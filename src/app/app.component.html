@@ -17,14 +17,14 @@
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="input_firstlastname">Fist Last Name:</label>
+            <label for="input_firstlastname">First Last Name:</label>
             <input type="text" class="form-control" id="input_firstlastname" [ngModelOptions]="{standalone:true}"
               placeholder="First Last Name" [(ngModel)]="profile_to_create.first_lastname">
           </div>
           <div class="form-group col-md-6">
             <label for="input_secondlastname">Second Last Name:</label>
             <input type="text" class="form-control" id="input_firstlastname" [ngModelOptions]="{standalone:true}"
-              [(ngModel)]="profile_to_create.second_lastname" placeholder="Secod Lastname">
+              [(ngModel)]="profile_to_create.second_lastname" placeholder="Second Last Name">
           </div>
         </div>
         <div class="form-row">
@@ -98,7 +98,7 @@
             <label for="status_info">Basic Information:</label>
             <div class="form-row" id="status_information">
               <div class="form-group col-md-2">
-                <label for="cmb_tittle">Tittle:</label>
+                <label for="cmb_tittle">Title:</label>
                 <select id="cmb_tittle" class="form-control" [ngModelOptions]="{standalone:true}"
                   [(ngModel)]="profile_to_create.tittle">
                   <option>MR</option>
@@ -283,8 +283,8 @@
               [(ngModel)]="profile_to_create.primary_phone">
           </div>
           <div class="form-group col-md-2">
-            <label for="input_igss">Altern Phone Number:</label>
-            <input type="text" class="form-control" placeholder="Altern Phone" [ngModelOptions]="{standalone:true}"
+            <label for="input_igss">Alternate Phone Number:</label>
+            <input type="text" class="form-control" placeholder="Alternate Phone" [ngModelOptions]="{standalone:true}"
               [(ngModel)]="profile_to_create.secondary_phone">
           </div>
           <div class="form-group col-md-3">
@@ -408,25 +408,25 @@
           [(ngModel)]="profile_to_create.unavailable_days">
       </div>
       <div class="form-group col-md-6">
-        <label for="input_itra">Where do you hear about us:</label>
+        <label for="input_itra">Where did you hear about us:</label>
         <input type="text" class="form-control" placeholder="About Us" [ngModelOptions]="{standalone:true}"
           [(ngModel)]="profile_to_create.marketing_campaing">
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-4">
-        <label for="input_itra">First Lenguage:</label>
-        <input type="text" class="form-control" placeholder="First Lenguage" [ngModelOptions]="{standalone:true}"
+        <label for="input_itra">First Language:</label>
+        <input type="text" class="form-control" placeholder="First Language" [ngModelOptions]="{standalone:true}"
           [(ngModel)]="profile_to_create.first_lenguage">
       </div>
       <div class="form-group col-md-4">
-        <label for="input_itra">Second Lenguage:</label>
-        <input type="text" class="form-control" placeholder="Second Lenguage" [ngModelOptions]="{standalone:true}"
+        <label for="input_itra">Second Language:</label>
+        <input type="text" class="form-control" placeholder="Second Language" [ngModelOptions]="{standalone:true}"
           [(ngModel)]="profile_to_create.second_lenguage">
       </div>
       <div class="form-group col-md-4">
-        <label for="input_itra">Third Lenguage:</label>
-        <input type="text" class="form-control" placeholder="Third Lenguage" [ngModelOptions]="{standalone:true}"
+        <label for="input_itra">Third Language:</label>
+        <input type="text" class="form-control" placeholder="Third Language" [ngModelOptions]="{standalone:true}"
           [(ngModel)]="profile_to_create.third_lenguage">
       </div>
     </div>
@@ -442,7 +442,7 @@
           </div>
           <div class="form-group col-md-4">
             <label for="emergency_name1">Second Name:</label>
-            <input type="text" class="form-control" placeholder="Secons Name" id="emergency_name2"
+            <input type="text" class="form-control" placeholder="Second Name" id="emergency_name2"
               [ngModelOptions]="{standalone:true}" [(ngModel)]="profile_to_create.emergency_second_name">
           </div>
           <div class="form-group col-md-4">
@@ -453,8 +453,8 @@
         </div>
         <div class="form-row">
           <div class="form-group col-md-4">
-            <label for="emergency_name1">First Last Name:</label>
-            <input type="text" class="form-control" placeholder="First Name" id="emergency_name1"
+            <label for="emergency_name1">Last Name:</label>
+            <input type="text" class="form-control" placeholder="Last Name" id="emergency_name1"
               [ngModelOptions]="{standalone:true}" [(ngModel)]="profile_to_create.emergency_first_lastname">
           </div>
           <div class="form-group col-md-4">
@@ -464,7 +464,7 @@
           </div>
           <div class="form-group col-md-4">
             <label for="emergency_name1">Relationship:</label>
-            <input type="text" class="form-control" placeholder="Phone Number" id="phone_number"
+            <input type="text" class="form-control" placeholder="Relationship" id="phone_number"
               [ngModelOptions]="{standalone:true}" [(ngModel)]="profile_to_create.relationship">
           </div>
         </div>
@@ -566,7 +566,7 @@
               [(ngModel)]="actual_job.position" placeholder="Position">
           </div>
           <div class="form-group col-md-2">
-            <label for="input_company">Working here:</label>
+            <label for="input_company">Still Working Here?:</label>
             <select class="form-control" [ngModelOptions]="{standalone:true}" [(ngModel)]="actual_job.working">
               <option>Yes</option>
               <option>No</option>
@@ -651,7 +651,7 @@
         </div>
         <div class="form-row">
           <div class="form-group col-md-12">
-            <label for="studing">Currently Studing?</label>
+            <label for="studing">Currently Studying?</label>
             <select id="studing" class="form-control" [ngModelOptions]="{standalone:true}"
               [(ngModel)]="currently_studing">
               <option>Yes</option>
