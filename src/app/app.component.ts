@@ -10,6 +10,8 @@ import { job_histories } from './job_histories';
 })
 export class AppComponent {
   title = 'applyentform';
+  distrit:string = null;
+  zone:string = '1';
 
 
   first_job = 'Yes';
@@ -114,6 +116,7 @@ export class AppComponent {
     this.finishedForm = true;
     this.profile_to_create.day_of_birthday = this.birth_year + '-' + this.birth_month + '-' + this.birth_day;
     this.profile_to_create.start_date = this.start_year + '-' + this.start_month + '-' + this.start_day;
+    this.profile_to_create.address = this.profile_to_create.address + ", " + this.profile_to_create.city + ", " + ", " + this.distrit + ", Zona " + this.zone;
     this.jobs_histories.push(this.actual_job);
     this.apiService.createProfile(form).subscribe((profile: number) => {
       console.log("Profile Created, ", profile);
