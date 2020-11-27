@@ -7,19 +7,19 @@
           <div class="form-group col-md-6">
             <label for="input_firstname">First Name:</label>
             <input type="text" class="form-control" id="input_firstname" [ngModelOptions]="{standalone:true}"
-              placeholder="First Name" [(ngModel)]="profile_to_create.first_name" (focus)="onFocusIt($event)">
+              placeholder="First Name" [(ngModel)]="profile_to_create.first_name" (focus)="onFocusIt($event)" required="true">
           </div>
           <div class="form-group col-md-6">
             <label for="input_secondname">Second Name:</label>
             <input type="text" class="form-control" id="input_secondname" [ngModelOptions]="{standalone:true}"
-              placeholder="Second Name" [(ngModel)]="profile_to_create.second_name">
+              placeholder="Second Name" [(ngModel)]="profile_to_create.second_name" required="true">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="input_firstlastname">First Last Name:</label>
             <input type="text" class="form-control" id="input_firstlastname" [ngModelOptions]="{standalone:true}"
-              placeholder="First Last Name" [(ngModel)]="profile_to_create.first_lastname">
+              placeholder="First Last Name" [(ngModel)]="profile_to_create.first_lastname" required="true">
           </div>
           <div class="form-group col-md-6">
             <label for="input_secondlastname">Second Last Name:</label>
@@ -33,7 +33,7 @@
             <div class="form-row" id="date_pick">
               <div class="form-group col-md-3">
                 <label for="date_day">Day:</label>
-                <select class="form-control" id="date_day" [ngModelOptions]="{standalone:true}" [(ngModel)]="birth_day">
+                <select class="form-control" id="date_day" [ngModelOptions]="{standalone:true}" [(ngModel)]="birth_day" required="true">                  
                   <option>1</option>
                   <option>2</option>
                   <option>3</option>
@@ -236,10 +236,14 @@
               </div>
               <div class="form-group col-md-4">
                 <label for="cmb_gender">Gender:</label>
-                <select id="cmb_gender" class="form-control">
+                <select id="cmb_gender" class="form-control" [(ngModel)]="profile_to_create.gender" [ngModelOptions]="{standalone: true}">
                   <option>Male</option>
                   <option>Female</option>
                 </select>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="input_etnia">Etnia:</label>                
+                <input type="text" class="form-control" placeholder="ladino" [(ngModel)]="profile_to_create.etnia" [ngModelOptions]="{standalone: true}">
               </div>
             </div>
           </div>
@@ -267,7 +271,7 @@
           </div>
           <div class="form-group col-md-3">
             <label for="input_itra">DPI:</label>
-            <input type="text" class="form-control" placeholder="DPI input" [ngModelOptions]="{standalone:true}"
+            <input type="number" class="form-control" placeholder="DPI input" [ngModelOptions]="{standalone:true}"
               [(ngModel)]="profile_to_create.dpi">
           </div>
         </div>
@@ -279,12 +283,12 @@
         <div class="form-row">
           <div class="form-group col-md-2">
             <label for="input_nit">Primary Phone Number:</label>
-            <input type="text" class="form-control" placeholder="Phone number" [ngModelOptions]="{standalone:true}"
+            <input type="number" class="form-control" placeholder="Phone number" [ngModelOptions]="{standalone:true}"
               [(ngModel)]="profile_to_create.primary_phone">
           </div>
           <div class="form-group col-md-2">
             <label for="input_igss">Alternate Phone Number:</label>
-            <input type="text" class="form-control" placeholder="Alternate Phone" [ngModelOptions]="{standalone:true}"
+            <input type="number" class="form-control" placeholder="Alternate Phone" [ngModelOptions]="{standalone:true}"
               [(ngModel)]="profile_to_create.secondary_phone">
           </div>
           <div class="form-group col-md-2">
@@ -303,8 +307,9 @@
           </div>
           <div class="form-group col-md-1">
             <label>Distrit:</label>
-            <input type="text" class="fom-control" placeholder="Mixco" [(ngModel)]="distrit" class="form-control" [ngModelOptions]="{standalone:true}">
-          </div>          
+            <input type="text" class="fom-control" placeholder="Mixco" [(ngModel)]="distrit" class="form-control"
+              [ngModelOptions]="{standalone:true}">
+          </div>
           <div class="form-group col-md-2">
             <label for="input_itra">Email:</label>
             <input type="email" class="form-control" placeholder="Email Address" [ngModelOptions]="{standalone:true}"
@@ -316,8 +321,8 @@
 
     <div class="form-row">
       <label for="gpr_add"><b>Additional Information:</b></label>
-        <div class="form-group col-md-12" id="gpr_add">
-            <div class="form-row">
+      <div class="form-group col-md-12" id="gpr_add">
+        <div class="form-row">
           <div class="form-group col-md-6" id="gpr_test">
             <label for="gpr_test">Let us know:</label>
             <div class="form-row">
@@ -331,9 +336,10 @@
                 <Select type="text" class="form-control" [ngModelOptions]="{standalone:true}"
                   [(ngModel)]="profile_to_create.transport" ngDefaultControl>
                   <option>Car</option>
+                  <option>Motocycle</option>
                   <option>Bus</option>
                   <option>Walk</option>
-                  </Select>
+                </Select>
               </div>
             </div>
           </div>
@@ -474,6 +480,45 @@
             <label for="emergency_name1">Relationship:</label>
             <input type="text" class="form-control" placeholder="Relationship" id="phone_number"
               [ngModelOptions]="{standalone:true}" [(ngModel)]="profile_to_create.relationship">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-row" style="border-bottom: 4px solid #e3f2fd">
+      <label for="gpr_statal"><b>Affinity:</b></label>
+      <div class="form-group col-md-12">
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="affinity_name1">First Name:</label>
+            <input type="text" class="form-control" placeholder="First Name" id="affinity_name1"
+              [(ngModel)]="profile_to_create.affinity_first_name" [ngModelOptions]="{standalone: true}">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="affinity_name1">Second Name:</label>
+            <input type="text" class="form-control" placeholder="Second Name" id="affinity_name2"
+              [(ngModel)]="profile_to_create.affinity_second_name" [ngModelOptions]="{standalone: true}">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="affinity_name1">Phone Number:</label>
+            <input type="text" class="form-control" placeholder="Phone Number" id="phone_number"
+              [(ngModel)]="profile_to_create.affinity_phone" [ngModelOptions]="{standalone: true}">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="affinity_name1">First Last Name:</label>
+            <input type="text" class="form-control" placeholder="First Last Name" id="affinity_name1"
+              [(ngModel)]="profile_to_create.affinity_first_lastname" [ngModelOptions]="{standalone: true}">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="affinity_name1">Second Last Name:</label>
+            <input type="text" class="form-control" placeholder="Second Name" id="affinity_name2"
+              [(ngModel)]="profile_to_create.affinity_second_lastname" [ngModelOptions]="{standalone: true}">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="affinity_name1">Relationship:</label>
+            <input type="text" class="form-control" placeholder="Relationship" id="affinity_relationship"
+              [(ngModel)]="profile_to_create.affinity_relationship" [ngModelOptions]="{standalone: true}">
           </div>
         </div>
       </div>
@@ -673,17 +718,17 @@
                   <div class="form-group col-md-4">
                     <label for="input_current">Current Carrer:</label>
                     <input type="text" id="input_current" class="form-control" [ngModelOptions]="{standalone:true}"
-                    [(ngModel)]="profile_to_create.currently_studing" placeholder="Current Carrer">
+                      [(ngModel)]="profile_to_create.currently_studing" placeholder="Current Carrer">
                   </div>
                   <div class="form-group col-md-4">
                     <label for="input_institution">Institution Name:</label>
                     <input type="text" id="input_institution" class="form-control" [ngModelOptions]="{standalone:true}"
-                    [(ngModel)]="profile_to_create.institution_name" placeholder="Institution Name">
+                      [(ngModel)]="profile_to_create.institution_name" placeholder="Institution Name">
                   </div>
                   <div class="form-group col-md-4">
-                    <label for="input_degree">Degree:</label> 
+                    <label for="input_degree">Degree:</label>
                     <input type="text" id="input_degree" class="form-control" [ngModelOptions]="{standalone:true}"
-                    [(ngModel)]="profile_to_create.degree" placeholder="Degree">
+                      [(ngModel)]="profile_to_create.degree" placeholder="Degree">
                   </div>
                 </div>
               </div>
@@ -692,7 +737,8 @@
         </div>
       </div>
     </div>
-    <button (click)="create(profile_to_create)" height="20px" style="width:80px;margin-left: 45%" class="form-control" *ngIf="!finishedForm">Finish</button>
+    <button (click)="create(profile_to_create)" height="20px" style="width:80px;margin-left: 45%" class="form-control"
+      *ngIf="!finishedForm">Finish</button>
     <label style="margin-left: 40%; color:#ff4455;" *ngIf="finishedForm">Welcome To Nearsol Family</label>
   </form>
 </div>

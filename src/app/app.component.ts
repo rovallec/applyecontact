@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ApiService } from './api.service';
 import { profiles } from './profiles';
 import { job_histories } from './job_histories';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-root',
@@ -10,8 +12,8 @@ import { job_histories } from './job_histories';
 })
 export class AppComponent {
   title = 'applyentform';
-  distrit:string = null;
-  zone:string = '1';
+  distrit: string = null;
+  zone: string = '1';
 
 
   first_job = 'Yes';
@@ -24,7 +26,7 @@ export class AppComponent {
 
   dt: Date = new Date
 
-  birth_day = String(this.dt.getDate()).padStart(2, '0');
+  birth_day = String(this.dt.getDate()).padStart(2, '0');;
   birth_month = String(this.dt.getMonth() + 1).padStart(1);
   birth_year = String(this.dt.getFullYear()).padStart(4);
 
@@ -57,12 +59,16 @@ export class AppComponent {
     second_lastname: null,
     day_of_birthday: null,
     nationality: 'Guatemalan',
+    gender: null,
+    etnia: null,
+    bank: 'N/A',
+    account: 'N/A',
     marital_status: 'Single',
     dpi: null,
     nit: null,
     igss: null,
     irtra: null,
-    status: 'PENDING',
+    status: 'VALIDATION',
     //Key
     id_profile: null,
     //Contact
@@ -90,6 +96,14 @@ export class AppComponent {
     emergency_second_lastname: null,
     emergency_phone: null,
     relationship: null,
+    // affinity
+    idaffinity_details: 0,
+    affinity_first_name: null,
+    affinity_second_name: null,
+    affinity_first_lastname: null,
+    affinity_second_lastname: null,
+    affinity_phone: null,
+    affinity_relationship: null,
     //Medical
     medical_treatment: null,
     medical_prescription: null,
@@ -101,7 +115,7 @@ export class AppComponent {
     degree: null
   };
 
-  finishedForm:boolean = false;
+  finishedForm: boolean = false;
 
   yrs: string[] = ["2020"]
 
@@ -112,6 +126,7 @@ export class AppComponent {
       this.yrs.push(it.toString());
     }
   }
+
   create(form) {
     this.finishedForm = true;
     this.profile_to_create.day_of_birthday = this.birth_year + '-' + this.birth_month + '-' + this.birth_day;
@@ -119,14 +134,17 @@ export class AppComponent {
     this.profile_to_create.address = this.profile_to_create.address + ", " + this.profile_to_create.city + ", " + ", " + this.distrit + ", Zona " + this.zone;
     this.jobs_histories.push(this.actual_job);
     this.apiService.createProfile(form).subscribe((profile: number) => {
-      console.log("Profile Created, ", profile);
-      this.jobs_histories.forEach(it => {
-        it.id_profile = profile;
-      });
-      this.apiService.create_job_history(this.jobs_histories).subscribe((record: number) => {
-        this.jobs_histories = [];
+      if (this.first_job == 'No') {
+        this.jobs_histories.forEach(it => {
+          it.id_profile = profile;
+          this.apiService.create_job_history(this.jobs_histories).subscribe((record: number) => {
+            this.jobs_histories = [];
+            window.location.href = "https://nearsol.us/";
+          });
+        })
+      } else {
         window.location.href = "https://nearsol.us/";
-      });
+      }
     });
   }
 
@@ -156,7 +174,7 @@ export class AppComponent {
     event.target.value = "";
   }
 
-  setselecteddate(val:any){
+  setselecteddate(val: any) {
     this.actual_job.date_joining = val;
   }
 }

@@ -7,6 +7,10 @@ export class profiles{
     second_lastname:string;
     day_of_birthday:string;
     nationality:string;
+    gender:string;
+    etnia:string;
+    bank:string;
+    account:string;    
     marital_status:string;
     dpi:string;
     nit:string;
@@ -40,6 +44,14 @@ export class profiles{
     emergency_second_lastname:string;
     emergency_phone:string;
     relationship:string;
+    //affinity
+    idaffinity_details:number;
+    affinity_first_name:string;
+    affinity_second_name:string;
+    affinity_first_lastname:string;
+    affinity_second_lastname:string;
+    affinity_phone:string;
+    affinity_relationship:string;
     //medical
     medical_treatment:string;
     medical_prescription:string;

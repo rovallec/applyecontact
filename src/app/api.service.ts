@@ -10,7 +10,7 @@ import {Observable} from 'rxjs';
 })
 export class ApiService {
 
-  php_api_server = "http://200.94.251.67";
+  php_api_server = "http://localhost/angularproject";
 
   createProfile(profile:profiles){
     return this.httpClient.post<number>(`${this.php_api_server}/phpscripts/create_application.php`, profile);
