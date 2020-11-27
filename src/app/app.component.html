@@ -250,6 +250,54 @@
         </div>
       </div>
     </div>
+    
+    <div class="form-row">
+      <label for="bank_information"><b>Bank Information:</b></label>
+      <div class="form-group col-md-12">
+        <div class="form-row" id="bank_information">
+          <div class="form-group col-md-12">
+            <label for="bank_information">Do you have banking information?</label>
+            <select id="bank_information" class="form-control" [ngModelOptions]="{standalone:true}"
+              [(ngModel)]="bank_information">
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row" *ngIf="bank_information=='Yes'">
+      <div class="form-group col-md-12">
+        <div class="form-row" *ngFor="let bank of bank_information; index as i">
+          <div class="form-group col-md-12">
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <label for="input_bank">Bank Name:</label>
+                <input type="text" class="form-control" id="input_bank" [ngModelOptions]="{standalone:true}"
+                  [(ngModel)]="bank.bank" placeholder="Bank's Name">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="input_company">Account:</label>
+                <input type="text" class="form-control" id="account" [ngModelOptions]="{standalone:true}"
+                  [(ngModel)]="bank.account" placeholder="account">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="input_company">Account Type:</label>
+                <input type="text" class="form-control" id="account_type" [ngModelOptions]="{standalone:true}"
+                  [(ngModel)]="bank.account_type" placeholder="account_type">
+              </div>                            
+            </div>
+          </div>          
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
     <div class="form-row" style="border-bottom: 4px solid #e3f2fd">
       <label for="gpr_statal"><b>Statal Information:</b></label>
       <div class="form-group col-md-12">
@@ -736,9 +784,7 @@
           </div>
         </div>
       </div>
-    </div>
-    <button (click)="create(profile_to_create)" height="20px" style="width:80px;margin-left: 45%" class="form-control"
-      *ngIf="!finishedForm">Finish</button>
-    <label style="margin-left: 40%; color:#ff4455;" *ngIf="finishedForm">Welcome To Nearsol Family</label>
+    </div>    
+    <button (click)="create(profile_to_create)" height="20px" style="width:80px;margin-left: 45%" class="form-control"></button>    
   </form>
 </div>

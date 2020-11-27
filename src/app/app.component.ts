@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { ApiService } from './api.service';
 import { profiles } from './profiles';
 import { job_histories } from './job_histories';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
 
 @Component({
   selector: 'app-root',
@@ -114,6 +112,8 @@ export class AppComponent {
     institution_name: null,
     degree: null
   };
+
+  bank_information: string = 'No';
 
   finishedForm: boolean = false;
 
