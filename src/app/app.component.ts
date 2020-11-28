@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ApiService } from './api.service';
 import { profiles } from './profiles';
 import { job_histories } from './job_histories';
+import { Bank_Information } from "./Bank_Information";
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,7 @@ export class AppComponent {
   title = 'applyentform';
   distrit: string = null;
   zone: string = '1';
-
+  bank_detail = 'No';
 
   first_job = 'Yes';
   medical_condition = 'No';
@@ -48,6 +49,17 @@ export class AppComponent {
     working: 'No'
   };
 
+  //bank_information: string = 'No';
+  bank_information: Bank_Information[] = [];
+
+  actual_bank: Bank_Information = {
+    id_profile: 0,
+    bank_name: null,
+    account: null,
+    type_account: null,
+    bank: null
+  };
+
   profile_to_create: profiles = {
     idprofile: null,
     tittle: 'MR',
@@ -59,8 +71,9 @@ export class AppComponent {
     nationality: 'Guatemalan',
     gender: null,
     etnia: null,
-    bank: 'N/A',
-    account: 'N/A',
+    bank: null,
+    account: null,
+    type_account: null,
     marital_status: 'Single',
     dpi: null,
     nit: null,
@@ -113,8 +126,6 @@ export class AppComponent {
     degree: null
   };
 
-  bank_information: string = 'No';
-
   finishedForm: boolean = false;
 
   yrs: string[] = ["2020"]
@@ -162,8 +173,16 @@ export class AppComponent {
       reference_phone: null,
       working: 'No'
     };
-    console.log(this.jobs_histories);
-
+  };
+  add_bank() {
+    this.bank_information.push(this.actual_bank);
+    this.actual_bank = {
+      id_profile: 0,
+      bank_name: null,
+      account: null,
+      type_account: null,
+      bank: null
+    };    
   };
 
   remove_it(indx) {

@@ -252,50 +252,33 @@
     </div>
     
     <div class="form-row">
-      <label for="bank_information"><b>Bank Information:</b></label>
-      <div class="form-group col-md-12">
-        <div class="form-row" id="bank_information">
-          <div class="form-group col-md-12">
-            <label for="bank_information">Do you have banking information?</label>
-            <select id="bank_information" class="form-control" [ngModelOptions]="{standalone:true}"
-              [(ngModel)]="bank_information">
-              <option>Yes</option>
-              <option>No</option>
-            </select>
-          </div>
-        </div>
+      <label for="bank_history"><b>Bank Information:</b></label>
+      <div class="form-group col-md-12" id="bank_history">        
+        <label for="sel_bank">Do you have banking information?</label>
+        <select id="input_bank_information" class="form-control" [ngModelOptions]="{standalone:true}" [(ngModel)]="bank_detail">
+          <option>Yes</option>
+          <option>No</option>
+        </select>              
       </div>
     </div>
 
-    <div class="form-row" *ngIf="bank_information=='Yes'">
-      <div class="form-group col-md-12">
-        <div class="form-row" *ngFor="let bank of bank_information; index as i">
-          <div class="form-group col-md-12">
-            <div class="form-row">
-              <div class="form-group col-md-3">
-                <label for="input_bank">Bank Name:</label>
-                <input type="text" class="form-control" id="input_bank" [ngModelOptions]="{standalone:true}"
-                  [(ngModel)]="bank.bank" placeholder="Bank's Name">
-              </div>
-              <div class="form-group col-md-3">
-                <label for="input_company">Account:</label>
-                <input type="text" class="form-control" id="account" [ngModelOptions]="{standalone:true}"
-                  [(ngModel)]="bank.account" placeholder="account">
-              </div>
-              <div class="form-group col-md-3">
-                <label for="input_company">Account Type:</label>
-                <input type="text" class="form-control" id="account_type" [ngModelOptions]="{standalone:true}"
-                  [(ngModel)]="bank.account_type" placeholder="account_type">
-              </div>                            
-            </div>
-          </div>          
-        </div>
+    <div class="form-row" *ngIf="bank_detail=='Yes'">
+      <div class="form-group col-md-6">        
+        <label for="input_bank">Bank Name:</label>
+        <input type="text" class="form-control" id="input_bank" [ngModelOptions]="{standalone:true}"
+          [(ngModel)]="profile_to_create.bank" placeholder="Bank's Name">
       </div>
-    </div>
-
-
-
-
+      <div class="form-group col-md-3">
+        <label for="account">Account:</label>
+        <input type="text" class="form-control" id="account" [ngModelOptions]="{standalone:true}"
+          [(ngModel)]="profile_to_create.account" placeholder="account">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="account_type">Account Type:</label>
+        <input type="text" class="form-control" id="account_type" [ngModelOptions]="{standalone:true}"
+          [(ngModel)]="profile_to_create.account_type" placeholder="account_type">
+      </div>                            
+    </div>  
 
 
     <div class="form-row" style="border-bottom: 4px solid #e3f2fd">

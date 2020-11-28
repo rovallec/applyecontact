@@ -11,6 +11,7 @@ export class profiles{
     etnia:string;
     bank:string;
     account:string;    
+    type_account:string;    
     marital_status:string;
     dpi:string;
     nit:string;
