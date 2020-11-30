@@ -3,6 +3,7 @@ import { ApiService } from './api.service';
 import { profiles } from './profiles';
 import { job_histories } from './job_histories';
 import { Bank_Information } from "./Bank_Information";
+import { Family_Information } from "./Family_Information";
 
 @Component({
   selector: 'app-root',
@@ -58,6 +59,18 @@ export class AppComponent {
     account: null,
     type_account: null,
     bank: null
+  };
+
+  family_information: Family_Information[] = [];
+
+  actual_family: Family_Information = {
+    id_profile: 0,
+    first_name: null,
+    second_name: null,
+    first_last_name: null,
+    second_last_name: null,
+    phone: null,
+    relationship: null
   };
 
   profile_to_create: profiles = {
@@ -183,6 +196,20 @@ export class AppComponent {
       type_account: null,
       bank: null
     };    
+  };
+
+  add_family() {
+    this.family_information.push(this.actual_family);
+    this.actual_family = {
+      id_profile: 0,
+      first_name: null,
+      second_name: null,
+      first_last_name: null,
+      second_last_name: null,
+      phone: null,
+      relationship: null
+    };
+
   };
 
   remove_it(indx) {

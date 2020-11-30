@@ -1,6 +1,6 @@
 <div>
   <form style="margin-left:10%; margin-right:10%; margin-top:25px" #f="ngForm">
-    <div class="form-row" style="border-bottom: 4px solid #e3f2fd">
+    <div class="form-row">
       <label for="gpr_personal"><b>Personal Information:</b></label>
       <div class="form-group col-md-12" id="gpr_personal">
         <div class="form-row">
@@ -115,7 +115,7 @@
                   <option>Married</option>
                 </select>
               </div>
-              <div class="form-group col-md-4">
+              <div class="form-group col-md-3">
                 <label for="cmb_nationality">Nationality:</label>
                 <select id="cmb_nationality" class="form-control" [ngModelOptions]="{standalone:true}"
                   [(ngModel)]="profile_to_create.nationality">
@@ -234,14 +234,14 @@
                   <option>Zimbabwean</option>
                 </select>
               </div>
-              <div class="form-group col-md-4">
+              <div class="form-group col-md-2">
                 <label for="cmb_gender">Gender:</label>
                 <select id="cmb_gender" class="form-control" [(ngModel)]="profile_to_create.gender" [ngModelOptions]="{standalone: true}">
                   <option>Male</option>
                   <option>Female</option>
                 </select>
               </div>
-              <div class="form-group col-md-4">
+              <div class="form-group col-md-3">
                 <label for="input_etnia">Etnia:</label>                
                 <input type="text" class="form-control" placeholder="ladino" [(ngModel)]="profile_to_create.etnia" [ngModelOptions]="{standalone: true}">
               </div>
@@ -251,7 +251,7 @@
       </div>
     </div>
     
-    <div class="form-row">
+    <div class="form-row" style="border-top: 4px solid #e3f2fd">
       <label for="bank_history"><b>Bank Information:</b></label>
       <div class="form-group col-md-12" id="bank_history">        
         <label for="sel_bank">Do you have banking information?</label>
@@ -261,7 +261,7 @@
         </select>              
       </div>
     </div>
-
+    
     <div class="form-row" *ngIf="bank_detail=='Yes'">
       <div class="form-group col-md-6">        
         <label for="input_bank">Bank Name:</label>
@@ -280,8 +280,7 @@
       </div>                            
     </div>  
 
-
-    <div class="form-row" style="border-bottom: 4px solid #e3f2fd">
+    <div class="form-row" style="border-top: 4px solid #e3f2fd">
       <label for="gpr_statal"><b>Statal Information:</b></label>
       <div class="form-group col-md-12">
         <div class="form-row">
@@ -308,7 +307,7 @@
         </div>
       </div>
     </div>
-    <div class="form-row" style="border-bottom: 4px solid #e3f2fd">
+    <div class="form-row" style="border-top: 4px solid #e3f2fd">
       <label for="gpr_statal"><b>Contact Information:</b></label>
       <div class="form-group col-md-12">
         <div class="form-row">
@@ -350,7 +349,7 @@
       </div>
     </div>
 
-    <div class="form-row">
+    <div class="form-row" style="border-top: 4px solid #e3f2fd">
       <label for="gpr_add"><b>Additional Information:</b></label>
       <div class="form-group col-md-12" id="gpr_add">
         <div class="form-row">
@@ -374,79 +373,10 @@
               </div>
             </div>
           </div>
-
-          <!--<div class="form-group col-md-6">
-            <label for="date_pick">Start Date:</label>
-            <div class="form-row" id="date_pick">
-              <div class="form-group col-md-2">
-                <label for="date_day">Day:</label>
-                <select class="form-control" id="date_day" [ngModelOptions]="{standalone:true}" [(ngModel)]="start_day">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                  <option>6</option>
-                  <option>7</option>
-                  <option>8</option>
-                  <option>9</option>
-                  <option>10</option>
-                  <option>11</option>
-                  <option>12</option>
-                  <option>13</option>
-                  <option>14</option>
-                  <option>15</option>
-                  <option>16</option>
-                  <option>17</option>
-                  <option>18</option>
-                  <option>19</option>
-                  <option>20</option>
-                  <option>21</option>
-                  <option>22</option>
-                  <option>23</option>
-                  <option>24</option>
-                  <option>25</option>
-                  <option>26</option>
-                  <option>27</option>
-                  <option>28</option>
-                  <option>29</option>
-                  <option>30</option>
-                  <option>31</option>
-                </select>
-              </div>
-              <div class="form-group col-md-3">
-                <label for="date_month">Month:</label>
-                <select id="date_month" class="form-control" [ngModelOptions]="{standalone:true}"
-                  [(ngModel)]="start_month">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                  <option>6</option>
-                  <option>7</option>
-                  <option>8</option>
-                  <option>9</option>
-                  <option>10</option>
-                  <option>11</option>
-                  <option>12</option>
-                </select>
-              </div>
-              <div class="form-group col-md-3">
-                <label for="date_month">Year:</label>
-                <select id="date_month" class="form-control" [ngModelOptions]="{standalone:true}"
-                  [(ngModel)]="start_year">
-                  <option>2020</option>
-                </select>
-              </div>
-            </div>
-          </div>!-->
-
-
         </div>
       </div>
     </div>
-    <div class="form-row" style="border-top: 4px solid #e3f2fd">
+    <div class="form-row">
       <div class="form-group col-md-6">
         <label for="input_itra">Unavailable days during week:</label>
         <input type="text" class="form-control" placeholder="Unavailable days" [ngModelOptions]="{standalone:true}"
@@ -476,8 +406,8 @@
       </div>
     </div>
 
-    <div class="form-row" style="border-bottom: 4px solid #e3f2fd">
-      <label for="gpr_statal"><b>Emergency Contact:</b></label>
+    <div class="form-row" style="border-top: 4px solid #e3f2fd">
+      <label for="gpr_statal" ><b>Emergency Contact:</b></label>
       <div class="form-group col-md-12">
         <div class="form-row">
           <div class="form-group col-md-4">
@@ -515,8 +445,8 @@
         </div>
       </div>
     </div>
-    <div class="form-row" style="border-bottom: 4px solid #e3f2fd">
-      <label for="gpr_statal"><b>Affinity:</b></label>
+    <div class="form-row" style="border-top: 4px solid #e3f2fd">
+      <label for="gpr_statal"><b>Family:</b></label>
       <div class="form-group col-md-12">
         <div class="form-row">
           <div class="form-group col-md-4">
@@ -553,8 +483,13 @@
           </div>
         </div>
       </div>
+      <div class="form-row" style="margin-left:95%">
+        <div class="form-group col-md-12">
+          <i class="fas fa-plus-circle" (click)="add_family()"></i>
+        </div>
+      </div>
     </div>
-    <div class="form-row">
+    <div class="form-row" style="border-top: 4px solid #e3f2fd">
       <label for="job_history"><b>Job History:</b></label>
       <div class="form-group col-md-12">
         <div class="form-row" id="job_history">
@@ -768,6 +703,6 @@
         </div>
       </div>
     </div>    
-    <button (click)="create(profile_to_create)" height="20px" style="width:80px;margin-left: 45%" class="form-control">Finish</button>    
+    <button (click)="create(profile_to_create)" height="20px" style="width:80px;margin-left: 45%; margin-bottom: 15px;" class="form-control">Finish</button>        
   </form>
 </div>
