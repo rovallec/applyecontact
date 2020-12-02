@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from './api.service';
 import { profiles } from './profiles';
 import { job_histories } from './job_histories';
@@ -24,9 +24,9 @@ export class AppComponent {
   created_contact = 0;
   created_details = 0;
 
-  dt: Date = new Date
+  dt: Date = new Date();
 
-  birth_day = String(this.dt.getDate()).padStart(2, '0');;
+  birth_day = String(this.dt.getDate()).padStart(2, '0');
   birth_month = String(this.dt.getMonth() + 1).padStart(1);
   birth_year = String(this.dt.getFullYear()).padStart(4);
 
@@ -41,6 +41,7 @@ export class AppComponent {
     id_profile: 0,
     company: null,
     date_joining: null,
+    date_end: null,
     position: null,
     reference_name: null,
     reference_lastname: null,
@@ -63,16 +64,6 @@ export class AppComponent {
 
   family_information: Family_Information[] = [];
 
-  actual_family: Family_Information = {
-    id_profile: 0,
-    first_name: null,
-    second_name: null,
-    first_last_name: null,
-    second_last_name: null,
-    phone: null,
-    relationship: null
-  };
-
   profile_to_create: profiles = {
     idprofile: null,
     tittle: 'MR',
@@ -86,7 +77,7 @@ export class AppComponent {
     etnia: null,
     bank: null,
     account: null,
-    type_account: null,
+    account_type: null,
     marital_status: 'Single',
     dpi: null,
     nit: null,
@@ -124,8 +115,8 @@ export class AppComponent {
     idaffinity_details: 0,
     affinity_first_name: null,
     affinity_second_name: null,
-    affinity_first_lastname: null,
-    affinity_second_lastname: null,
+    affinity_first_last_name: null,
+    affinity_second_last_name: null,
     affinity_phone: null,
     affinity_relationship: null,
     //Medical
@@ -151,6 +142,10 @@ export class AppComponent {
     }
   }
 
+  ngOnInit() {
+    this.add_family();
+  }
+
   create(form) {
     this.finishedForm = true;
     this.profile_to_create.day_of_birthday = this.birth_year + '-' + this.birth_month + '-' + this.birth_day;
@@ -158,26 +153,33 @@ export class AppComponent {
     this.profile_to_create.address = this.profile_to_create.address + ", " + this.profile_to_create.city + ", " + ", " + this.distrit + ", Zona " + this.zone;
     this.jobs_histories.push(this.actual_job);
     this.apiService.createProfile(form).subscribe((profile: number) => {
+      console.log(profile);
+      this.family_information.forEach(element => { 
+        element.id_profile = profile;        
+      });
+      this.apiService.create_family_information(this.family_information).subscribe((record: number) => {
+        // window.location.href = "https://nearsol.us/";
+      });
       if (this.first_job == 'No') {
         this.jobs_histories.forEach(it => {
           it.id_profile = profile;
-          this.apiService.create_job_history(this.jobs_histories).subscribe((record: number) => {
-            this.jobs_histories = [];
-            window.location.href = "https://nearsol.us/";
-          });
-        })
+        });
+        this.apiService.create_job_history(this.jobs_histories).subscribe((record: number) => {
+          /* window.location.href = "https://nearsol.us/"; */
+        });        
       } else {
-        window.location.href = "https://nearsol.us/";
-      }
+        /* window.location.href = "https://nearsol.us/"; */
+      };
     });
-  }
+  }  
 
   add_historie() {
     this.jobs_histories.push(this.actual_job);
     this.actual_job = {
-      id_profile: 0,
+      id_profile: this.actual_job.id_profile,
       company: null,
       date_joining: null,
+      date_end: null,
       position: null,
       reference_name: null,
       reference_lastname: null,
@@ -187,6 +189,7 @@ export class AppComponent {
       working: 'No'
     };
   };
+
   add_bank() {
     this.bank_information.push(this.actual_bank);
     this.actual_bank = {
@@ -199,18 +202,13 @@ export class AppComponent {
   };
 
   add_family() {
-    this.family_information.push(this.actual_family);
-    this.actual_family = {
-      id_profile: 0,
-      first_name: null,
-      second_name: null,
-      first_last_name: null,
-      second_last_name: null,
-      phone: null,
-      relationship: null
-    };
-
+    let fam:Family_Information = new Family_Information;
+    this.family_information.push(fam);
   };
+
+  remove_fam(fam){
+    this.family_information.splice(fam, this.family_information.indexOf(fam))
+  }
 
   remove_it(indx) {
     this.jobs_histories.splice(indx, 1);
@@ -222,5 +220,8 @@ export class AppComponent {
 
   setselecteddate(val: any) {
     this.actual_job.date_joining = val;
+  }
+  setselecteddateend(val: any) {
+    this.actual_job.date_end = val;
   }
 }

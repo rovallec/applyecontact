@@ -11,7 +11,7 @@ export class profiles{
     etnia:string;
     bank:string;
     account:string;    
-    type_account:string;    
+    account_type:string;    
     marital_status:string;
     dpi:string;
     nit:string;
@@ -49,8 +49,8 @@ export class profiles{
     idaffinity_details:number;
     affinity_first_name:string;
     affinity_second_name:string;
-    affinity_first_lastname:string;
-    affinity_second_lastname:string;
+    affinity_first_last_name:string;
+    affinity_second_last_name:string;
     affinity_phone:string;
     affinity_relationship:string;
     //medical
