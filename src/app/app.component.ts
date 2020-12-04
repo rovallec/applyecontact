@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from './api.service';
 import { profiles } from './profiles';
 import { job_histories } from './job_histories';
-import { Bank_Information } from "./Bank_Information";
+import { Bank_Information } from "./bank_information";
 import { Family_Information } from "./Family_Information";
 
 @Component({
