@@ -158,17 +158,17 @@ export class AppComponent {
         element.id_profile = profile;        
       });
       this.apiService.create_family_information(this.family_information).subscribe((record: number) => {
-        // window.location.href = "https://nearsol.us/";
+        window.location.href = "https://nearsol.us/";
       });
       if (this.first_job == 'No') {
         this.jobs_histories.forEach(it => {
           it.id_profile = profile;
         });
         this.apiService.create_job_history(this.jobs_histories).subscribe((record: number) => {
-          /* window.location.href = "https://nearsol.us/"; */
+          window.location.href = "https://nearsol.us/";
         });        
       } else {
-        /* window.location.href = "https://nearsol.us/"; */
+        window.location.href = "https://nearsol.us/";
       };
     });
   }  
